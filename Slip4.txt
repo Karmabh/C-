@@ -1,0 +1,82 @@
+Q1)C#
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string str, rev = "";
+
+        Console.Write("Enter String: ");
+        str = Console.ReadLine();
+
+        for (int i = str.Length - 1; i >= 0; i--)
+        {
+            rev += str[i];
+        }
+
+        if (str == rev)
+            Console.WriteLine("Palindrome");
+        else
+            Console.WriteLine("Not Palindrome");
+    }
+}
+
+Q2) aspx
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Slip4.aspx.cs" Inherits="WebApplication1.Slip4" %>
+
+<!DOCTYPE html>
+<html>
+<body>
+<form runat="server">
+
+Name:
+<asp:TextBox ID="txtName" runat="server"></asp:TextBox><br /><br />
+
+Message:
+<asp:TextBox ID="txtMsg" runat="server"></asp:TextBox><br /><br />
+
+<asp:CheckBox ID="chkBold" runat="server" Text="Bold" />
+<asp:CheckBox ID="chkItalic" runat="server" Text="Italic" />
+<asp:CheckBox ID="chkUnderline" runat="server" Text="Underline" />
+
+<br /><br />
+
+<asp:Button ID="btnShow" runat="server" Text="Show" OnClick="btnShow_Click" />
+
+<br /><br />
+
+<asp:Label ID="lbl" runat="server"></asp:Label>
+
+</form>
+</body>
+</html>
+
+Q2) aspx.cs 
+using System;
+using System.Drawing;
+
+namespace WebApplication1
+{
+    public partial class Slip4 : System.Web.UI.Page
+    {
+        protected void btnShow_Click(object sender, EventArgs e)
+        {
+            lbl.Text = txtName.Text + " " + txtMsg.Text;
+
+            if (chkBold.Checked)
+                lbl.Font.Bold = true;
+
+            if (chkItalic.Checked)
+                lbl.Font.Italic = true;
+
+            if (chkUnderline.Checked)
+                lbl.Font.Underline = true;
+
+            lbl.ForeColor = Color.Red;
+            lbl.BackColor = Color.Yellow;
+        }
+    }
+}

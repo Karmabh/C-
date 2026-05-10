@@ -1,0 +1,65 @@
+Q1)C#
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int a, b;
+
+        Console.Write("Enter First Number: ");
+        a = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("Enter Second Number: ");
+        b = Convert.ToInt32(Console.ReadLine());
+
+        Console.WriteLine("Addition = " + (a + b));
+        Console.WriteLine("Subtraction = " + (a - b));
+        Console.WriteLine("Multiplication = " + (a * b));
+        Console.WriteLine("Division = " + (a / b));
+    }
+}
+
+
+Q2)aspx
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Slip6.aspx.cs" Inherits="WebApplication1.Slip6" %>
+
+<!DOCTYPE html>
+<html>
+<body>
+<form runat="server">
+
+<asp:RadioButtonList ID="rblFlower" runat="server" RepeatColumns="2">
+    <asp:ListItem>Rose</asp:ListItem>
+    <asp:ListItem>Lotus</asp:ListItem>
+    <asp:ListItem>Lily</asp:ListItem>
+    <asp:ListItem>Sunflower</asp:ListItem>
+</asp:RadioButtonList>
+
+<asp:Button ID="btnShow" runat="server" Text="Show" OnClick="btnShow_Click" />
+
+<br /><br />
+
+<asp:Label ID="lbl" runat="server"></asp:Label>
+
+</form>
+</body>
+</html>
+
+Q2) aspx.cs
+
+using System;
+
+namespace WebApplication1
+{
+    public partial class Slip6 : System.Web.UI.Page
+    {
+        protected void btnShow_Click(object sender, EventArgs e)
+        {
+            lbl.Text = "Selected Flower: " + rblFlower.SelectedValue;
+        }
+    }
+}
+
+

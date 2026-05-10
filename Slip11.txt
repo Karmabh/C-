@@ -1,0 +1,83 @@
+Q1)C#
+using System;
+using System.Collections;
+
+class Program
+{
+    static void Main()
+    {
+        Stack s = new Stack();
+
+        s.Push(10);
+        s.Push(20);
+        s.Push(30);
+        s.Push(40);
+
+        Console.WriteLine("Top Element: " + s.Peek());
+
+        object[] arr = s.ToArray();
+
+        Console.WriteLine("Bottom Element: " + arr[arr.Length - 1]);
+    }
+}
+
+Q2)C#
+
+using System;
+
+interface Student
+{
+    void GetStudent();
+}
+
+interface Marks
+{
+    void GetMarks();
+}
+
+class Result : Student, Marks
+{
+    int roll;
+    string name;
+    int m1, m2;
+
+    public void GetStudent()
+    {
+        Console.Write("Enter Roll No: ");
+        roll = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("Enter Name: ");
+        name = Console.ReadLine();
+    }
+
+    public void GetMarks()
+    {
+        Console.Write("Enter Marks1: ");
+        m1 = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("Enter Marks2: ");
+        m2 = Convert.ToInt32(Console.ReadLine());
+    }
+
+    public void Display()
+    {
+        int total = m1 + m2;
+
+        Console.WriteLine("Roll No: " + roll);
+        Console.WriteLine("Name: " + name);
+        Console.WriteLine("Total Marks: " + total);
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        Result r = new Result();
+
+        r.GetStudent();
+        r.GetMarks();
+        r.Display();
+    }
+}
+

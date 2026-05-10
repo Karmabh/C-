@@ -1,0 +1,73 @@
+Q1) C#
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int n, fact = 1;
+
+       Console.Write("Enter Number: ");
+        n = Convert.ToInt32(Console.ReadLine());
+
+        for (int i = 1; i <= n; i++)
+        {
+            fact = fact * i;
+        }
+
+        Console.WriteLine("Factorial = " + fact);
+    }
+}
+
+Q2) aspx
+
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Slip1.aspx.cs" Inherits="WebApplication1.Slip1" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Student Info</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        Student ID:
+        <asp:TextBox ID="txtId" runat="server"></asp:TextBox><br /><br />
+
+        Student Name:
+        <asp:TextBox ID="txtName" runat="server"></asp:TextBox><br /><br />
+
+        Course Name:
+        <asp:TextBox ID="txtCourse" runat="server"></asp:TextBox><br /><br />
+
+        DOB:
+        <asp:TextBox ID="txtDob" runat="server"></asp:TextBox><br /><br />
+
+        <asp:Button ID="btnShow" runat="server" Text="Display" OnClick="btnShow_Click" />
+
+        <br /><br />
+
+        <asp:Label ID="lblResult" runat="server"></asp:Label>
+    </form>
+</body>
+</html>
+
+
+Q2)aspx.cs
+
+using System;
+
+namespace WebApplication1
+{
+    public partial class Slip1 : System.Web.UI.Page
+    {
+        protected void btnShow_Click(object sender, EventArgs e)
+        {
+            lblResult.Text = "ID: " + txtId.Text +
+                             "<br/>Name: " + txtName.Text +
+                             "<br/>Course: " + txtCourse.Text +
+                             "<br/>DOB: " + txtDob.Text;
+        }
+    }
+}

@@ -1,0 +1,87 @@
+Q1)C# 
+
+ using System;
+
+class Program
+{
+    static void Main()
+    {
+        int n, first, last, sum;
+
+        Console.Write("Enter Number: ");
+        n = Convert.ToInt32(Console.ReadLine());
+
+        last = n % 10;
+
+        while (n >= 10)
+        {
+            n = n / 10;
+        }
+
+        first = n;
+
+        sum = first + last;
+
+        Console.WriteLine("Sum of First and Last Digit = " + sum);
+    }
+}
+
+Q2) aspx
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Slip12.aspx.cs" Inherits="WebApplication1.Slip12" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Message Formatting</title>
+</head>
+<body>
+<form id="form1" runat="server">
+
+Name:
+<asp:TextBox ID="txtName" runat="server"></asp:TextBox>
+<br /><br />
+
+Message:
+<asp:TextBox ID="txtMessage" runat="server"></asp:TextBox>
+<br /><br />
+
+<asp:CheckBox ID="chkBold" runat="server" Text="Bold" />
+<asp:CheckBox ID="chkItalic" runat="server" Text="Italic" />
+<asp:CheckBox ID="chkUnderline" runat="server" Text="Underline" />
+
+<br /><br />
+
+<asp:Button ID="btnShow" runat="server" Text="Display" OnClick="btnShow_Click" />
+
+<br /><br />
+
+<asp:Label ID="lblMessage" runat="server"></asp:Label>
+
+</form>
+</body>
+</html>
+
+
+Q2) aspx.cs
+
+using System;
+using System.Drawing;
+
+namespace WebApplication1
+{
+    public partial class Slip12 : System.Web.UI.Page
+    {
+        protected void btnShow_Click(object sender, EventArgs e)
+        {
+            lblMessage.Text = txtName.Text + " : " + txtMessage.Text;
+
+            lblMessage.Font.Bold = chkBold.Checked;
+            lblMessage.Font.Italic = chkItalic.Checked;
+            lblMessage.Font.Underline = chkUnderline.Checked;
+
+            lblMessage.ForeColor = Color.Blue;
+            lblMessage.BackColor = Color.LightYellow;
+        }
+    }
+}

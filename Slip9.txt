@@ -1,0 +1,79 @@
+Q1)C#
+
+using System;
+
+class Program
+{
+    static int CountChar(string str, char ch)
+    {
+        int count = 0;
+
+        foreach (char c in str)
+        {
+            if (c == ch)
+                count++;
+        }
+
+        return count;
+    }
+
+    static void Main()
+    {
+        string s = "Kunal";
+        char ch = 'a';
+
+        Console.WriteLine("Occurrences = " + CountChar(s, ch));
+    }
+}
+
+Q2)C#
+using System;
+
+class Person
+{
+    public string name;
+    public string birthdate;
+
+    public Person(string n, string b)
+    {
+        name = n;
+        birthdate = b;
+    }
+
+    public virtual void Print()
+    {
+        Console.WriteLine(name + " " + birthdate);
+    }
+}
+
+class Student : Person
+{
+    public string course;
+
+    public Student(string n, string b, string c) : base(n, b)
+    {
+        course = c;
+    }
+
+    public override void Print()
+    {
+        base.Print();
+        Console.WriteLine("Course: " + course);
+    }
+}
+
+class Instructor : Person
+{
+    public int salary;
+
+    public Instructor(string n, string b, int s) : base(n, b)
+    {
+        salary = s;
+    }
+
+    public override void Print()
+    {
+        base.Print();
+        Console.WriteLine("Salary: " + salary);
+    }
+}

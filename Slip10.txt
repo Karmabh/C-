@@ -1,0 +1,82 @@
+Q1)C#
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int n, r, sum = 0, temp;
+
+        Console.Write("Enter Number: ");
+        n = Convert.ToInt32(Console.ReadLine());
+
+        temp = n;
+
+        while (n > 0)
+        {
+            r = n % 10;
+            sum = sum + (r * r * r);
+            n = n / 10;
+        }
+
+        if (temp == sum)
+            Console.WriteLine("Armstrong Number");
+        else
+            Console.WriteLine("Not Armstrong");
+    }
+}
+
+Q2) aspx
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Slip10.aspx.cs" Inherits="WebApplication1.Slip10" %>
+
+<!DOCTYPE html>
+<html>
+<body>
+<form runat="server">
+
+Enter Number:
+<asp:TextBox ID="txtNum" runat="server"></asp:TextBox>
+
+<asp:Button ID="btnCheck" runat="server" Text="Check" OnClick="btnCheck_Click" />
+
+<br /><br />
+
+<asp:Label ID="lbl" runat="server"></asp:Label>
+
+</form>
+</body>
+</html>
+
+
+Q2)aspx.cs
+
+using System;
+
+namespace WebApplication1
+{
+    public partial class Slip10 : System.Web.UI.Page
+    {
+        protected void btnCheck_Click(object sender, EventArgs e)
+        {
+            int n, rev = 0, rem, temp;
+
+            n = Convert.ToInt32(txtNum.Text);
+            temp = n;
+
+            while (n > 0)
+            {
+                rem = n % 10;
+                rev = rev * 10 + rem;
+                n = n / 10;
+            }
+
+            if (temp == rev)
+                lbl.Text = "Palindrome Number";
+            else
+                lbl.Text = "Not Palindrome";
+        }
+    }
+}
+

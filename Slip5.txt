@@ -1,0 +1,56 @@
+Q1)C#
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] arr = { 10, 50, 20, 80, 30 };
+        int max = arr[0];
+
+        foreach (int i in arr)
+        {
+            if (i > max)
+                max = i;
+        }
+
+        Console.WriteLine("Largest Number = " + max);
+    }
+}
+
+Q2) aspx
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Slip5.aspx.cs" Inherits="WebApplication1.Slip5" %>
+
+<!DOCTYPE html>
+<html>
+<body>
+<form id="form1" runat="server">
+
+<asp:DropDownList ID="ddlColor" runat="server">
+    <asp:ListItem>Red</asp:ListItem>
+    <asp:ListItem>Blue</asp:ListItem>
+    <asp:ListItem>Green</asp:ListItem>
+</asp:DropDownList>
+
+<asp:Button ID="btnChange" runat="server" Text="Change Color" OnClick="btnChange_Click" />
+
+</form>
+</body>
+</html>
+
+Q2) aspx.cs
+using System;
+using System.Drawing;
+
+namespace WebApplication1
+{
+    public partial class Slip5 : System.Web.UI.Page
+    {
+        protected void btnChange_Click(object sender, EventArgs e)
+        {
+            form1.Style.Add("background-color", ddlColor.SelectedValue);
+        }
+    }
+}

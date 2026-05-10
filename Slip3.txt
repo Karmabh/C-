@@ -1,0 +1,91 @@
+Q1) C#
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] arr = { 5, 2, 8, 1, 9 };
+
+        Array.Sort(arr);
+
+        Console.WriteLine("Ascending Order:");
+        foreach (int i in arr)
+            Console.Write(i + " ");
+
+        Array.Reverse(arr);
+
+        Console.WriteLine("\nDescending Order:");
+        foreach (int i in arr)
+            Console.Write(i + " ");
+    }
+}
+
+Q2) aspx
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Slip3.aspx.cs" Inherits="WebApplication1.Slip3" %>
+
+<!DOCTYPE html>
+<html>
+<body>
+<form runat="server">
+    Number 1:
+    <asp:TextBox ID="txt1" runat="server"></asp:TextBox><br /><br />
+
+    Number 2:
+    <asp:TextBox ID="txt2" runat="server"></asp:TextBox><br /><br />
+
+    <asp:Button ID="btnAdd" runat="server" Text="Add" OnClick="btnAdd_Click" />
+    <asp:Button ID="btnSub" runat="server" Text="Sub" OnClick="btnSub_Click" />
+    <asp:Button ID="btnMul" runat="server" Text="Mul" OnClick="btnMul_Click" />
+    <asp:Button ID="btnDiv" runat="server" Text="Div" OnClick="btnDiv_Click" />
+
+    <br /><br />
+    <asp:Label ID="lbl" runat="server"></asp:Label>
+</form>
+</body>
+</html>
+
+
+Q2) aspx.cs
+
+using System;
+
+namespace WebApplication1
+{
+    public partial class Slip3 : System.Web.UI.Page
+    {
+        int a, b;
+
+        void GetData()
+        {
+            a = Convert.ToInt32(txt1.Text);
+            b = Convert.ToInt32(txt2.Text);
+        }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            GetData();
+            lbl.Text = "Addition = " + (a + b);
+        }
+
+        protected void btnSub_Click(object sender, EventArgs e)
+        {
+            GetData();
+            lbl.Text = "Subtraction = " + (a - b);
+        }
+
+        protected void btnMul_Click(object sender, EventArgs e)
+        {
+            GetData();
+            lbl.Text = "Multiplication = " + (a * b);
+        }
+
+        protected void btnDiv_Click(object sender, EventArgs e)
+        {
+            GetData();
+            lbl.Text = "Division = " + (a / b);
+        }
+    }
+}

@@ -1,0 +1,45 @@
+Q1)C#
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[] arr = { 10, 5, 80, 2, 50 };
+
+        int min = arr[0];
+        int max = arr[0];
+
+        foreach (int i in arr)
+        {
+            if (i < min)
+                min = i;
+
+            if (i > max)
+                max = i;
+        }
+
+        Console.WriteLine("Minimum = " + min);
+        Console.WriteLine("Maximum = " + max);
+    }
+}
+
+Q2)SQL
+CREATE TABLE student(
+    rollno INT,
+    name VARCHAR(50),
+    per FLOAT
+);
+
+INSERT INTO student VALUES(1,'Kunal',95);
+INSERT INTO student VALUES(2,'Amit',35);
+INSERT INTO student VALUES(3,'Kiran',92);
+INSERT INTO student VALUES(4,'Kavya',85);
+INSERT INTO student VALUES(5,'Rohit',30);
+
+DELETE FROM student WHERE per < 40;
+
+SELECT name FROM student WHERE per > 90;
+
+SELECT name FROM student WHERE name LIKE 'K%';
+
